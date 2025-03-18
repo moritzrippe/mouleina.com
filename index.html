@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mouleina</title>
+    <title>mouleina GROKKKKKK</title>
     <link rel="icon" href="title.png">
     <meta name="description" content="mouleina">
-    <!DOCTYPE html>
-<html lang="de">
     <style>
         @font-face {
             font-family: 'Local';
@@ -24,11 +22,30 @@
             height: 100vh;
             background-size: cover;
             overflow: hidden;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .logo-container {
+            position: relative;
+            display: inline-block;
         }
 
         .logo {
             width: 60px;
             margin-bottom: 10px;
+            pointer-events: none; /* Verhindert Interaktion mit dem Bild */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent; /* Unsichtbare Schicht */
         }
 
         .text {
@@ -37,18 +54,15 @@
             color: black;
             cursor: pointer;
             user-select: none;
-        }
-
-        body {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+            text-transform: lowercase; /* Erzwingt Kleinschreibung */
         }
     </style>
 </head>
 <body oncontextmenu="return false;">
-    <img src="logo.png" alt="Logo" class="logo">
+    <div class="logo-container">
+        <img src="logo.png" alt="Logo" class="logo" draggable="false" ondragstart="return false;">
+        <div class="overlay"></div>
+    </div>
     <div id="mouleinaText" class="text">mouleina</div>
 
     <script>
@@ -70,7 +84,7 @@
             clearTimeout(timeout);
             timeout = setTimeout(() => {
                 textElement.textContent = originalText;
-            }, 2222); //(2,2 Sekunden)
+            }, 2222); // (2,2 Sekunden)
         });
     </script>
 </body>
